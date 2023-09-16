@@ -1,1 +1,1 @@
-# youtube_transcript_summerizer
+# youtube transcript summerizer
