@@ -63,37 +63,6 @@ chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
                     var oldtext = Store.get(url);
                     p.innerHTML = oldtext;
                 }else if (isValidURL || isinput == 0) {
-                    // btn.disabled = true;
-                    // input_url.disabled = true;
-                    // btn.innerHTML = "Summarising...";
-                    // xhr.onload = function () {
-                    //     var text = xhr.responseText;
-                    //     Store.set(url,text)
-                    //     input_url.disabled = false;
-                    //     p.innerHTML = text;
-                    //     btn.disabled = false;
-                    //     btn.innerHTML = "Summarise";
-                    //     cancilbtn.style.display = "none";
-                    //     ele.innerHTML = "done"
-                    // }
-
-                    // // cancil the summarization api call process
-                    // cancilbtn.style.display = "block";
-                    // cancilbtn.addEventListener("click",function () {
-                    //         console.log("cancil button clicked");
-                    //         xhr.abort()
-                    //         ele.innerHTML = "Terminated!";     
-                    //         btn.innerHTML = "Summarize";
-                    //         cancilbtn.style.display = "none" ;   
-                    //         btn.disabled = false;
-                    //         input_url.disabled = false;
-                    // });
-                                       
-                    // // Set the method (GET or POST) and open the connection
-                    // xhr.open("GET", "http://127.0.0.1:5000/summary?url=" + url, true);
-                     
-                    // // Send the request
-                    // xhr.send();
                     btn.disabled = true;
                     input_url.disabled = true;
                     btn.innerHTML = "Summarising...";
