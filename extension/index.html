@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      h1 {
+          text-align: center;
+      }
+      body {
+          width: max-content;
+          max-width: 800px;
+      }
+      button {
+          background-color: red;
+          color: white;
+          border-radius: 8px;
+          width: max-content;
+          height: max-content;
+          padding: 10px;
+          font-size: large;
+          margin: auto;
+          display: block;
+          border-color: coral;
+      }
+      button[disabled] {
+          background-color: lightcoral;
+          color: white;
+          border-radius: 8px;
+          width: max-content;
+          height: max-content;
+          padding: 10px;
+          font-size: large;
+          margin: auto;
+          display: block;
+          border-color: lightpink;
+      }
+      p {
+          font-size: medium;
+      }
+  </style>
+  </head>
+<body>
+    <h1>Youtube Video Summarizer</h1>
+    <div id = "parent">
+      <input id="input" placeholder="enter the url or video id">
+      <button id="summarise" type="button">Summarise</button>
+      <button id="cancil" type="button">cancil</button>
+    </div>
+
+    <br/>
+    
+    <p id="output"></p>
+    <script src="popup.js"></script>
+    <script src="display.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+{
+  "name": "QuickVue",
+  "description": "Prototype",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "declarativeContent","tabs","scripting","storage"],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "action": {
+    "default_title": "Summarise the video",
+    "default_icon": {
+        "16": "images/icon.png",
+        "32": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
+    },
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+        "matches": ["<all_urls>"],
+        "js": ["display.js"]
+    }
+],
+  "icons": {
+    "16": "images/icon.png",
+    "32": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  }
+
+}
