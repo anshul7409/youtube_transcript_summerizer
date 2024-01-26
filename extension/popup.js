@@ -1,7 +1,6 @@
 const btn = document.getElementById("summarise");
 const input_url = document.getElementById("input");
 const prefix = "https://www.youtube.com/watch?v=";
-const xhr = new XMLHttpRequest();
 const cancilbtn = document.getElementById("cancil");
 const p = document.getElementById("output");
 var url = "";
