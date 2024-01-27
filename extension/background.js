@@ -24,10 +24,5 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             });
     }
     return true;
-    // if(request === "i want to summarize"){
-    //     sendResponse("ok u can summarize")
-    // }
-    // console.log(request)
-    // sendResponse("No u cant summarize")
 })
 
