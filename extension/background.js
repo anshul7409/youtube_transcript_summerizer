@@ -9,8 +9,7 @@ chrome.action.onClicked.addListener((tab) => {
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     // const xhr = new XMLHttpRequest();
-    var text = "No response"
-    if(request.cancil === false){
+    if(request.isvalid == true){
         fetch("http://127.0.0.1:5000/summary?url=" + request.url)
             .then(response => response.text())
             .then(data => {

@@ -1,7 +1,6 @@
 const btn = document.getElementById("summarise");
 const input_url = document.getElementById("input");
 const prefix = "https://www.youtube.com/watch?v=";
-const cancilbtn = document.getElementById("cancil");
 const p = document.getElementById("output");
 var url = "";
 var Store = new Map();
@@ -12,8 +11,6 @@ chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
         var parent = document.getElementById("parent");
         var ele = document.createElement('h1');
         parent.appendChild(ele)
-        cancilbtn.style.display = "none";
-        
         if (tabs && tabs.length > 0) {
             var taburl = tabs[0].url;
             console.log(taburl);
@@ -65,30 +62,15 @@ chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
                     btn.disabled = true;
                     input_url.disabled = true;
                     btn.innerHTML = "Summarising...";
-                    var cancil = false;
-                    const request = {"url":url,"cancil":cancil};
-                    cancilbtn.style.display = "block";
-                    cancilbtn.addEventListener("click",function () {
-                            console.log("cancil button clicked");
-                            ele.innerHTML = "Terminated!";     
-                            btn.innerHTML = "Summarize";
-                            cancilbtn.style.display = "none" ;   
-                            btn.disabled = false;
-                            input_url.disabled = false;
-                            p.style.display = "none";
-                            cancil = true
-                    });
+                    const request = {"url":url,"isvalid":true};
                     chrome.runtime.sendMessage(request);
                     chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
                         if(request.action === "summary"){
-                            cancilbtn.style.display = "none";
                             btn.innerHTML = "Summarise";
                             btn.disabled = false;
                             input_url.disabled = false;
                             Store.set(url,request.text)
-                            if(cancil == false){
-                                p.innerHTML = request.text;
-                            }
+                            p.innerHTML = request.text;
                             sendResponse("got the summary")
                         }
                     })
