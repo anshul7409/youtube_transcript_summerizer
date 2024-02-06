@@ -11,6 +11,7 @@ chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
         var parent = document.getElementById("parent");
         var ele = document.createElement('h1');
         parent.appendChild(ele)
+        // fetch the link if youtube is opened
         if (tabs && tabs.length > 0) {
             var taburl = tabs[0].url;
             console.log(taburl);
@@ -26,7 +27,8 @@ chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
                 console.log("Error:", error);
             }
         }
-
+        
+        // show input box if youtube is not open
         if (isinput == 1) {
             console.log("show input box for entering URL");
             var inputurl = '';
@@ -38,7 +40,7 @@ chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
                 if (inputurl.includes(prefix)) {
                     isValidURL = true; // Valid URL entered
                     ele.innerHTML = "Successfully fetched!";
-                    btn.disabled = false; // Enable the button
+                    btn.disabled = false;
                 } else {
                     isValidURL = false; // Invalid URL or empty input
                     if(inputurl == ""){
@@ -64,6 +66,7 @@ chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
                     btn.innerHTML = "Summarising...";
                     const request = {"url":url,"isvalid":true};
                     chrome.runtime.sendMessage(request);
+                    //send request to service worker for summarization
                     chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
                         if(request.action === "summary"){
                             btn.innerHTML = "Summarise";
